@@ -6,7 +6,7 @@ It demonstrates simple file I/O (/proc and /sys), a subprocess fallback, and a t
 
 Files
 - `system-info.py` - Flask app + functions to collect system info.
-- `requirements.txt` - minimal dependency list.
+- `requirements.txt` - Minimal dependency list.
 
 Quick start
 
