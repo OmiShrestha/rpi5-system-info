@@ -1,3 +1,5 @@
+# Author: Omi Shrestha
+
 """System metrics logger for tracking temperature, RAM, and uptime history."""
 
 import json
@@ -7,6 +9,7 @@ from pathlib import Path
 from typing import List, Dict
 
 
+# System metrics logger
 class SystemLogger:
     def __init__(self, log_dir: str = "logs", max_entries: int = 1000):
         """Initialize logger with configurable directory and max entries."""

@@ -327,5 +327,33 @@
     "cpu_temp_c": 47.4,
     "ram_used_percent": 21.1,
     "ram_used_mb": 1703.72
+  },
+  {
+    "timestamp": 1763002811,
+    "datetime": "2025-11-12T22:00:11.533389",
+    "cpu_temp_c": 46.85,
+    "ram_used_percent": 21.2,
+    "ram_used_mb": 1705.77
+  },
+  {
+    "timestamp": 1763002816,
+    "datetime": "2025-11-12T22:00:16.563310",
+    "cpu_temp_c": 45.2,
+    "ram_used_percent": 21.1,
+    "ram_used_mb": 1700.2
+  },
+  {
+    "timestamp": 1763002821,
+    "datetime": "2025-11-12T22:00:21.606975",
+    "cpu_temp_c": 46.3,
+    "ram_used_percent": 21.1,
+    "ram_used_mb": 1700.03
+  },
+  {
+    "timestamp": 1763002826,
+    "datetime": "2025-11-12T22:00:26.633565",
+    "cpu_temp_c": 46.3,
+    "ram_used_percent": 21.1,
+    "ram_used_mb": 1699.53
   }
 ]
