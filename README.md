@@ -6,6 +6,7 @@ It demonstrates simple file I/O (/proc and /sys), a subprocess fallback, and a t
 
 Files
 - `system-info.py` - Flask app + functions to collect system info.
+- `logger.py` - System metrics logger for tracking historical data.
 - `requirements.txt` - Minimal dependency list.
 
 Quick start
@@ -38,8 +39,11 @@ Notes and learning points
 - RAM: reads `/proc/meminfo` and computes used/free in MB and percent.
 - Uptime: reads `/proc/uptime` and formats a simple human-readable string.
 - The app provides both an HTML dashboard and a JSON endpoint at `/api/status` for programmatic use.
+- **Historical logging**: The `logger.py` module automatically saves metrics to daily JSON files in the `logs/` directory (up to 1000 recent entries per day).
+- **History API**: Access historical metrics via `/api/history?hours=N` (e.g., `/api/history?hours=24` for last 24 hours).
 
 Next steps you might try
-- Add graphs using Chart.js and a small history buffer in memory.
+- Add graphs using Chart.js to visualize the historical data from `/api/history`.
 - Add authentication if exposing publicly.
 - Add unit tests for the parsing functions by mocking `/proc/meminfo` and `/proc/uptime`.
+- Implement automatic cleanup of old log files to prevent disk space issues.

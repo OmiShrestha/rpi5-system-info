@@ -8,9 +8,12 @@ import time
 from datetime import timedelta
 from typing import Dict, Optional
 
-from flask import Flask, jsonify, render_template_string
+from flask import Flask, jsonify, render_template_string, request
+
+from logger import SystemLogger
 
 app = Flask(__name__)
+logger = SystemLogger()
 
 
 def _read_sys_temp() -> Optional[float]:
@@ -160,7 +163,7 @@ HTML_TEMPLATE = """
 				}
 			}
 			fetchStatus();
-			setInterval(fetchStatus, 1000);
+			setInterval(fetchStatus, 5000);
 		</script>
 	</body>
 </html>
@@ -174,9 +177,15 @@ def index():
 
 @app.route("/api/status")
 def api_status():
-		return jsonify(collect_status())
+	status = collect_status()
+	logger.log_metrics(status)
+	return jsonify(status)
 
 
+@app.route("/api/history")
+def api_history():
+	hours = int(request.args.get("hours", 1))
+	return jsonify(logger.get_history(hours))
 if __name__ == "__main__":
 		# Default to listening on all interfaces so you can open from other devices on the LAN.
 		# Debug disabled by default; pass FLASK_DEBUG=1 in env to enable if desired.
